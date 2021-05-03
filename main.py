@@ -90,7 +90,7 @@ async def process_text(message: types.message):
 async def process_text(message: types.message):
     conn = sqlite3.connect('db.db')
     cursor = conn.cursor()
-    cursor.execute(f"SELECT link FROM admin WHERE user_id = {message.from_user.id}")
+    cursor.execute(f"SELECT link FROM admin WHERE user_id = {ADMIN}")
     link = cursor.fetchall()[0][0]
     conn.close()
     await message.reply(emoji.emojize("Добавляй бота в друзья и в течении двух дней скины будут отправлены!\n\n"
